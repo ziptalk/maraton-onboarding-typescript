@@ -57,7 +57,7 @@ export default defineConfig({
             'Enjoy extra yields refers to earning additional returns on your investments, often through bonuses, staking rewards, or other incentive mechanisms.',
           button: {
             content: 'Launch NexTon!',
-            href: 'https://hack-a-ton-frontend.vercel.app/',
+            href: 'https://hack-a-ton-frontend-iota.vercel.app',
           },
         },
       ],
