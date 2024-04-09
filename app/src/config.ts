@@ -1,5 +1,8 @@
 import { defineConfig } from '@tok/generation';
 
+const imageStyle =
+  'flex: 1; display: flex; align-items: center; justify-content: center; width: 75%; align-self: center;';
+
 // Default configuration for the NexTon onboarding kit
 export default defineConfig({
   // If you want to add language/currency localization – see ./examples/meditation as reference
@@ -12,8 +15,7 @@ export default defineConfig({
           media: {
             type: 'image',
             src: import('./assets/img/onboarding_1.png'),
-            style:
-              'flex: 1; display: flex; align-items: center; justify-content: center',
+            style: imageStyle,
           },
           textAlign: 'center',
           shape: 'square',
@@ -29,8 +31,7 @@ export default defineConfig({
           media: {
             type: 'image',
             src: import('./assets/img/onboarding_2.png'),
-            style:
-              'flex: 1; display: flex; align-items: center; justify-content: center',
+            style: imageStyle,
           },
           textAlign: 'center',
           shape: 'square',
@@ -46,8 +47,7 @@ export default defineConfig({
           media: {
             type: 'image',
             src: import('./assets/img/onboarding_3.png'),
-            style:
-              'flex: 1; display: flex; align-items: center; justify-content: center',
+            style: imageStyle,
           },
           textAlign: 'center',
           shape: 'square',
