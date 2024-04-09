@@ -22,7 +22,6 @@ export default defineConfig({
           description:
             'Staking locks your assets in a blockchain to earn rewards. Restaking reinvests those rewards to compound earnings.',
           button: 'Next',
-          mainButtonText: 'Buy for {price}',
         },
 
         // 2nd Slide
