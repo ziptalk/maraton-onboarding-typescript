@@ -33,7 +33,7 @@ const onClick = () => {
   }
 
   if (closeTMA.value) {
-    sdk.closeTMA();
+    sdk.close();
   }
 
   emit('onClick');
