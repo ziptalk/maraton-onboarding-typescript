@@ -74,9 +74,7 @@ const computedComponent = computed(() => {
 });
 
 const onClick = (event) => {
-  if (closeTMA.value) {
-    sdk.close();
-  }
+  sdk.close();
 
   emit('click', event);
 };
