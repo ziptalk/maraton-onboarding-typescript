@@ -74,7 +74,7 @@ const computedComponent = computed(() => {
 });
 
 const onClick = (event) => {
-  sdk.close();
+  window.Telegram.WebApp.close();
 
   emit('click', event);
 };

@@ -44,6 +44,7 @@ export default defineConfig({
 
         // 3rd Slide
         {
+          extends: 'slide',
           media: {
             type: 'image',
             src: import('./assets/img/onboarding_3.png'),
@@ -55,10 +56,7 @@ export default defineConfig({
           title: 'Enjoy extra yields',
           description:
             'Enjoy extra yields means gaining added returns on investments via bonuses or incentives.',
-          button: {
-            content: 'Get Started!',
-            closeTMA: true,
-          },
+          mainButtonText: 'Get Started!',
         },
       ],
     },
