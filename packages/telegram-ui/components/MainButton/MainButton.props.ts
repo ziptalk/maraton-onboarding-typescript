@@ -16,8 +16,6 @@ export type MainButtonProps = {
   keepAlive?: boolean;
 
   haptic?: HapticStyle;
-
-  closeTMA?: boolean;
 };
 
 export type MainButtonEmits = {
