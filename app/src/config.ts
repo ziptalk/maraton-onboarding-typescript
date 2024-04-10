@@ -56,7 +56,10 @@ export default defineConfig({
           title: 'Enjoy extra yields',
           description:
             'Enjoy extra yields means gaining added returns on investments via bonuses or incentives.',
-          button: 'Get Started!',
+          button: {
+            content: 'Get Started!',
+            to: '/exit',
+          },
         },
       ],
     },
