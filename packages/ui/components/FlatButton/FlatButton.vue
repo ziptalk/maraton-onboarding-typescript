@@ -10,7 +10,7 @@
     :disabled="disabled"
     :href="href"
     :to="to"
-    @click="onClick"
+    @on-click="onClick"
   >
     <slot name="icon">
       <svg-icon v-if="icon" :name="icon" :rotate="rotate" :size="iconSize" />
@@ -74,7 +74,7 @@ const computedComponent = computed(() => {
 });
 
 const onClick = (event) => {
-  window.Telegram.WebApp.close();
+  sdk.close();
 
   emit('click', event);
 };
