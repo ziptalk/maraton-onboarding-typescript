@@ -44,6 +44,8 @@ const props = withDefaults(
   FlatButtonDefaultProps
 );
 
+const emit = defineEmits(['click']);
+
 const { icon, size, iconRight, shape, iconButton, href, to, closeTMA } =
   toRefs(props);
 
@@ -71,12 +73,12 @@ const computedComponent = computed(() => {
   return isVueLink ? 'router-link' : 'button';
 });
 
-const onClick = () => {
+const onClick = (event) => {
   if (closeTMA.value) {
     sdk.close();
   }
 
-  emit('onClick');
+  emit('click', event);
 };
 </script>
 
