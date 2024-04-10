@@ -14,7 +14,6 @@ export type FlatButtonProps = {
   iconButton?: boolean;
   href?: string;
   to?: RouteLocationRaw;
-  closeTMA?: boolean;
 
   iconSize?: SvgIconProps['size'];
 };

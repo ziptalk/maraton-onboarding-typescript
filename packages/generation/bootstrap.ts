@@ -4,9 +4,10 @@ import { DefinePresetsPlugin } from '@tok/generation/plugins/definePresets';
 import { FormStatePlugin } from '@tok/generation/plugins/formState';
 import { ThemePlugin } from '@tok/generation/plugins/theme';
 import { TokI18nPlugin } from '@tok/i18n';
+import { useTelegramSdk } from '@tok/telegram-ui/use/sdk';
 import { AlertsPlugin } from '@tok/ui/plugins/alerts';
 import { CurrencyPlugin } from '@tok/ui/plugins/currency';
-import { createApp } from 'vue';
+import { createApp, defineComponent } from 'vue';
 import {
   createRouter,
   createWebHistory,
@@ -23,6 +24,7 @@ export function bootstrap<T extends BootstrapConfig<any>>(
   config: T
 ) {
   const { fallback, ...asyncLocales } = config.locale || {};
+  const tg = useTelegramSdk();
 
   const i18nOptions = {
     default: fallback || 'en',
@@ -39,9 +41,25 @@ export function bootstrap<T extends BootstrapConfig<any>>(
     };
   });
 
+  const exitRoute: RouteRecordRaw = {
+    path: '/exit',
+    component: defineComponent({
+      template: '<div></div>',
+      beforeRouteEnter(to, from, next) {
+        if (tg) {
+          console.log('Running inside Telegram Mini App - closing');
+          tg.close();
+        } else {
+          console.log('Not running inside Telegram Mini App - cannot close');
+          next(false); // Cancel navigation if not in Telegram Mini App
+        }
+      },
+    }),
+  };
+
   const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL || '/'),
-    routes: ([] as RouteRecordRaw[]).concat(pages).concat({
+    routes: ([] as RouteRecordRaw[]).concat(pages).concat(exitRoute).concat({
       path: '/not-found',
       alias: '/:catchAll(.*)*',
       redirect: '/',

@@ -10,7 +10,6 @@
     :disabled="disabled"
     :href="href"
     :to="to"
-    @on-click="onClick"
   >
     <slot name="icon">
       <svg-icon v-if="icon" :name="icon" :rotate="rotate" :size="iconSize" />
@@ -32,7 +31,6 @@
 </template>
 
 <script setup lang="ts">
-import { useTelegramSdk } from '@tok/telegram-ui/use/sdk';
 import { SvgIcon } from '@tok/ui/components/SvgIcon';
 import { RippleDirective as vRipple } from '@tok/ui/directives/ripple';
 import { computed, toRefs } from 'vue';
@@ -44,12 +42,7 @@ const props = withDefaults(
   FlatButtonDefaultProps
 );
 
-const emit = defineEmits(['click']);
-
-const { icon, size, iconRight, shape, iconButton, href, to, closeTMA } =
-  toRefs(props);
-
-const sdk = useTelegramSdk();
+const { icon, size, iconRight, shape, iconButton, href, to } = toRefs(props);
 
 const computedShape = computed(() => {
   const _shape = shape.value;
@@ -72,12 +65,6 @@ const computedComponent = computed(() => {
 
   return isVueLink ? 'router-link' : 'button';
 });
-
-const onClick = (event) => {
-  sdk.close();
-
-  emit('click', event);
-};
 </script>
 
 <style lang="scss" scope>

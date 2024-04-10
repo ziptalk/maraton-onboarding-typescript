@@ -60,14 +60,6 @@ watch(router.currentRoute, (value) => {
   }
 });
 
-watch(router.currentRoute, () => {
-  const value = router.currentRoute.value;
-
-  if (value.path === '/exit') {
-    tg.close();
-  }
-});
-
 const onSetInteraction = () => {
   wasInteraction.value = true;
 };
