@@ -63,7 +63,7 @@ export function bootstrap<T extends BootstrapConfig<any>>(
       template: '<div></div>',
       beforeRouteEnter(to, from, next) {
         if (tg) {
-          tg.openLink('https://hack-a-ton-frontend-iota.vercel.app/');
+          tg.openTelegramLink('https://hack-a-ton-frontend-iota.vercel.app/');
         } else {
           console.log('Not running inside Telegram Mini App - cannot redirect');
           next(false); // Cancel navigation if not in Telegram Mini App
