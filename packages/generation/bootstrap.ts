@@ -57,13 +57,32 @@ export function bootstrap<T extends BootstrapConfig<any>>(
     }),
   };
 
+  const nextonRoute: RouteRecordRaw = {
+    path: '/nexton',
+    component: defineComponent({
+      template: '<div></div>',
+      beforeRouteEnter(to, from, next) {
+        if (tg) {
+          tg.openLink('https://hack-a-ton-frontend-iota.vercel.app/');
+        } else {
+          console.log('Not running inside Telegram Mini App - cannot redirect');
+          next(false); // Cancel navigation if not in Telegram Mini App
+        }
+      },
+    }),
+  };
+
   const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL || '/'),
-    routes: ([] as RouteRecordRaw[]).concat(pages).concat(exitRoute).concat({
-      path: '/not-found',
-      alias: '/:catchAll(.*)*',
-      redirect: '/',
-    }),
+    routes: ([] as RouteRecordRaw[])
+      .concat(pages)
+      .concat(exitRoute)
+      .concat(nextonRoute)
+      .concat({
+        path: '/not-found',
+        alias: '/:catchAll(.*)*',
+        redirect: '/',
+      }),
   });
 
   router.afterEach((to: RouteLocationNormalized) => {
