@@ -57,7 +57,8 @@ export function bootstrap<T extends BootstrapConfig<any>>(
     }),
   };
 
-  const nextonRoute: RouteRecordRaw = {
+  // TG doesn't support opening links in TMA yet
+  /* const nextonRoute: RouteRecordRaw = {
     path: '/nexton',
     component: defineComponent({
       template: '<div></div>',
@@ -70,19 +71,15 @@ export function bootstrap<T extends BootstrapConfig<any>>(
         }
       },
     }),
-  };
+  }; */
 
   const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL || '/'),
-    routes: ([] as RouteRecordRaw[])
-      .concat(pages)
-      .concat(exitRoute)
-      .concat(nextonRoute)
-      .concat({
-        path: '/not-found',
-        alias: '/:catchAll(.*)*',
-        redirect: '/',
-      }),
+    routes: ([] as RouteRecordRaw[]).concat(pages).concat(exitRoute).concat({
+      path: '/not-found',
+      alias: '/:catchAll(.*)*',
+      redirect: '/',
+    }),
   });
 
   router.afterEach((to: RouteLocationNormalized) => {
