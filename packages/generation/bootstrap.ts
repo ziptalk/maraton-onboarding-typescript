@@ -19,8 +19,6 @@ import { BootstrapConfig } from "./defineConfig";
 
 type _App = Parameters<typeof createApp>[0];
 
-const tele = (window as any).Telegram.WebApp;
-
 export function bootstrap<T extends BootstrapConfig<any>>(
   App: _App,
   config: T
@@ -53,10 +51,8 @@ export function bootstrap<T extends BootstrapConfig<any>>(
           // tg.close();
 
           // tg.openTelegramLink("https://t.me/Nexton_tele_bot/nexton/startapp=0");
-          if (tele) {
-            tele.ready();
-            tele.sendData({ command: "/launchNexton" });
-          }
+
+          tg.answerWebAppQuery("/launchNexton");
         } else {
           console.log("Not running inside Telegram Mini App - cannot close");
           next(false); // Cancel navigation if not in Telegram Mini App
