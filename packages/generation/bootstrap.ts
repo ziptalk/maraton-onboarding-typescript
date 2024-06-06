@@ -50,7 +50,9 @@ export function bootstrap<T extends BootstrapConfig<any>>(
           console.log("Running inside Telegram Mini App - closing");
           // tg.close();
 
-          tg.openTelegramLink("https://t.me/Nexton_tele_bot/nexton/startapp=0");
+          // tg.openTelegramLink("https://t.me/Nexton_tele_bot/nexton/startapp=0");
+
+          tg.sendData({ text: "/launchNexton" });
         } else {
           console.log("Not running inside Telegram Mini App - cannot close");
           next(false); // Cancel navigation if not in Telegram Mini App
