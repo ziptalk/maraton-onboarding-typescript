@@ -48,9 +48,9 @@ export function bootstrap<T extends BootstrapConfig<any>>(
       beforeRouteEnter(to, from, next) {
         if (tg) {
           console.log("Running inside Telegram Mini App - closing");
-          // tg.close();
+          tg.close();
 
-          tg.sendData("close_onboarding"); // Close the app
+          // tg.sendData("close_onboarding"); // Close the app
         } else {
           console.log("Not running inside Telegram Mini App - cannot close");
           next(false); // Cancel navigation if not in Telegram Mini App
