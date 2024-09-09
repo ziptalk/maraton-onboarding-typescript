@@ -20,9 +20,9 @@ export default defineConfig({
           textAlign: 'center',
           shape: 'square',
           pagination: 'count',
-          title: 'Stake & Restake your assets',
+          title: 'Try staking TON <br/>through MARATON!',
           description:
-            'Staking secures assets on the blockchain for rewards, and restaking compounds those earnings.',
+            'Connect your wallet, deposit your TON <br/> into MARATON, and earn additional rewards!',
           button: 'Next',
         },
 
@@ -36,9 +36,9 @@ export default defineConfig({
           textAlign: 'center',
           shape: 'square',
           pagination: 'count',
-          title: 'Collateralize & Liquify by NFTs',
+          title: 'Unstake Your TON Securely',
           description:
-            'Collateralizing uses NFTs as loan security, while liquifying transforms them into cash or tokens.',
+            'Unstake your TON and access your funds securely in just a few steps.',
           button: 'Next',
         },
 
